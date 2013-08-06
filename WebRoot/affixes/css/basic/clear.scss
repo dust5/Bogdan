@@ -1,0 +1,8 @@
+@import "matric.scss";
+@import "style.scss";
+
+body, p, h1, h2, h3, h4, h5, h6, span, ul{
+  @include p();
+  @include m();
+  @include b(0px, none);
+}

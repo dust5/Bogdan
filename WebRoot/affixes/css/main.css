@@ -1,0 +1,364 @@
+.cb {
+  clear: both; }
+
+.fl-left {
+  float: left; }
+
+.fl-right {
+  float: right; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto; }
+
+.dn {
+  display: none !important; }
+
+.uv {
+  visibility: hidden; }
+
+.font-verysmall {
+  font-size: 12px; }
+
+.font-small, .tips-text, .input-text {
+  font-size: 14px; }
+
+.font-middle, .content {
+  font-size: 16px; }
+
+.font-big, .module-title, .btn-block {
+  font-size: 18px; }
+
+.font-verybig, .bar-title, .btn-big {
+  font-size: 20px; }
+
+.text-center, .btn-block {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.module-title {
+  color: #a29584; }
+
+.nb {
+  background-image: none !important;
+  padding: 0 !important; }
+
+.color-black, .btn-block {
+  color: black; }
+
+.color-darkgrey, .content {
+  color: #4d4b47; }
+
+.color-grey {
+  color: #807e7a; }
+
+.color-lightgrey, .tips-text, .input-text {
+  color: #b3b3b3; }
+
+.color-link {
+  color: #004477; }
+
+.color-module, .bar-title, .btn-big, .color-active {
+  color: #666666; }
+
+.color-amount {
+  color: #cc0000; }
+
+.color-button, .btn-block {
+  background-color: #ffcc33; }
+
+.color-button-active, .btn-active {
+  background-color: #ffac13; }
+
+.color-client-background {
+  background-color: #f4f0ed; }
+
+.color-module-background {
+  background-color: whitesmoke; }
+
+.color-module-background-active {
+  background-color: #f3f3f3; }
+
+.color-line {
+  color: #eeeeee; }
+
+.ico-quan {
+  background-color: none;
+  background-image: url(/affixes/images/quan@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-mian {
+  background-color: none;
+  background-image: url(/affixes/images/mian@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-song {
+  background-color: none;
+  background-image: url(/affixes/images/song@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-zhe {
+  background-color: none;
+  background-image: url(/affixes/images/zhe@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-jian {
+  background-color: none;
+  background-image: url(/affixes/images/jian@2x.png);
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  padding-left: 30px !important;
+  background-size: 20px 20px; }
+
+.ico-zhao {
+  background-color: none;
+  background-image: url(/affixes/images/zhao@2x.png);
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  padding-left: 30px !important;
+  background-size: 20px 20px; }
+
+.btn {
+  padding: 0px 10px;
+  line-height: 25px;
+  height: 25px; }
+
+.btn-inline {
+  display: inline-block;
+  min-width: 24px;
+  min-height: 1px; }
+
+.btn-block {
+  display: block;
+  margin: 0;
+  font-weight: bolder;
+  padding: 12px 0;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-top: -10px; }
+
+.btn-disable {
+  background-color: #e3e1df;
+  border: 1px solid #c7c5c3;
+  color: #807e7a;
+  height: 41px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px; }
+
+.btn-able {
+  background-color: white;
+  border: 1px solid #c7c5c3;
+  height: 41px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #807e7a; }
+
+.btn-hover {
+  background-color: #d3cfcd !important; }
+
+.cb {
+  clear: both; }
+
+.fl-left {
+  float: left; }
+
+.fl-right {
+  float: right; }
+
+.center {
+  margin-left: auto;
+  margin-right: auto; }
+
+.dn {
+  display: none !important; }
+
+.uv {
+  visibility: hidden; }
+
+.font-verysmall {
+  font-size: 12px; }
+
+.font-small, .tips-text, .input-text {
+  font-size: 14px; }
+
+.font-middle, .content {
+  font-size: 16px; }
+
+.font-big, .module-title, .btn-block {
+  font-size: 18px; }
+
+.font-verybig, .bar-title, .btn-big {
+  font-size: 20px; }
+
+.text-center, .btn-block {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.module-title {
+  color: #a29584; }
+
+.nb {
+  background-image: none !important;
+  padding: 0 !important; }
+
+.color-black, .btn-block {
+  color: black; }
+
+.color-darkgrey, .content {
+  color: #4d4b47; }
+
+.color-grey {
+  color: #807e7a; }
+
+.color-lightgrey, .tips-text, .input-text {
+  color: #b3b3b3; }
+
+.color-link {
+  color: #004477; }
+
+.color-module, .bar-title, .btn-big, .color-active {
+  color: #666666; }
+
+.color-amount {
+  color: #cc0000; }
+
+.color-button, .btn-block {
+  background-color: #ffcc33; }
+
+.color-button-active, .btn-active {
+  background-color: #ffac13; }
+
+.color-client-background {
+  background-color: #f4f0ed; }
+
+.color-module-background {
+  background-color: whitesmoke; }
+
+.color-module-background-active {
+  background-color: #f3f3f3; }
+
+.color-line {
+  color: #eeeeee; }
+
+.ico-quan {
+  background-color: none;
+  background-image: url(/affixes/images/quan@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-mian {
+  background-color: none;
+  background-image: url(/affixes/images/mian@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-song {
+  background-color: none;
+  background-image: url(/affixes/images/song@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-zhe {
+  background-color: none;
+  background-image: url(/affixes/images/zhe@2x.png);
+  background-position: 9px 11px;
+  background-repeat: no-repeat;
+  padding-left: 35px !important;
+  background-size: 20px 20px; }
+
+.ico-jian {
+  background-color: none;
+  background-image: url(/affixes/images/jian@2x.png);
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  padding-left: 30px !important;
+  background-size: 20px 20px; }
+
+.ico-zhao {
+  background-color: none;
+  background-image: url(/affixes/images/zhao@2x.png);
+  background-position: 0px 0px;
+  background-repeat: no-repeat;
+  padding-left: 30px !important;
+  background-size: 20px 20px; }
+
+.btn {
+  padding: 0px 10px;
+  line-height: 25px;
+  height: 25px; }
+
+.btn-inline {
+  display: inline-block;
+  min-width: 24px;
+  min-height: 1px; }
+
+.btn-block {
+  display: block;
+  margin: 0;
+  font-weight: bolder;
+  padding: 12px 0;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-top: -10px; }
+
+.btn-disable {
+  background-color: #e3e1df;
+  border: 1px solid #c7c5c3;
+  color: #807e7a;
+  height: 41px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px; }
+
+.btn-able {
+  background-color: white;
+  border: 1px solid #c7c5c3;
+  height: 41px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #807e7a; }
+
+.btn-hover {
+  background-color: #d3cfcd !important; }
+
+body, p, h1, h2, h3, h4, h5, h6, span, ul {
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  border: 0px solid black; }

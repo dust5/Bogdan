@@ -1,0 +1,60 @@
+//atom class for size and box
+//include width,height,margin,padding,position ect.
+
+//size
+@mixin h($value) {
+  height: $value;
+}
+@mixin w($value) {
+  width: $value;
+}
+
+//box
+@mixin d($type: inline-block) {
+  display: $type;
+}
+@mixin fl($type: left) {
+  float: $type;
+}
+@mixin m($top: 0px, $right: 0px, $bottom: 0px, $left: 0px) {
+  @if $top == auto {
+    margin: #{$top} #{$right};
+  } @else {
+    margin: #{$top} #{$right} #{$bottom} #{$left};
+  }
+}
+@mixin p($top: 0px, $right: 0px, $bottom: 0px, $left: 0px) {
+  padding: #{$top} #{$right} #{$bottom} #{$left};
+}
+@mixin lh($value) {
+  line-height: $value;
+}
+
+.cb{
+  clear: both;
+}
+
+
+.fl-left{
+  @include fl(left);
+}
+.fl-right{
+  @include fl(right);
+}
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+.dn{
+  display: none !important;
+}
+.uv{
+  visibility: hidden;
+}
+
+//todo position
+@mixin pst($type, $top: 0px, $left: 0px) {
+  position: $type;
+  top: $top;
+  left: $left;
+}

@@ -1,0 +1,233 @@
+//atom class for font and color
+
+//font
+@mixin f($size:12px) {
+  font-size: $size;
+}
+@mixin fw($value: normal) {
+  font-weight: $value;
+}
+@mixin c($color: black) {
+  color: $color;
+}
+@mixin ta($type: left) {
+  text-align: $type;
+}
+@mixin va($type: top) {
+  vertical-align: $type;
+}
+.font-verysmall{
+  @include f(12px);
+}
+.font-small{
+  @include f(14px);
+}
+.font-middle{
+  @include f(16px);
+}
+.font-big{
+  @include f(18px);
+}
+.font-verybig{
+  @include f(20px);
+}
+.text-center{
+  @include ta(center);
+}
+.text-left{
+  @include ta();
+}
+.text-right{
+  @include ta(right);
+}
+
+.bar-title, .btn-big{
+  @extend .font-verybig;
+  @extend .color-module;
+}
+.module-title{
+  @extend .font-big;
+  @include c(#a29584);
+}
+.content{
+  @extend .font-middle;
+  @extend .color-darkgrey;
+}
+.tips-text, .input-text{
+  @extend .font-small;
+  @extend .color-lightgrey;
+}
+//background
+@mixin bc($image, $code:none, $repeat: no-repeat,$left: 0px, $top: 0px) {
+  background-color: $code;
+  @if $image == none {
+
+  } @else {
+    background-image: url(#{$image});
+    background-position: $left $top;
+    background-repeat: $repeat;
+  }
+}
+@mixin o($value:0.5) {
+  opacity: $value;
+}
+
+.nb{
+  background-image: none !important;
+  padding: 0 !important;
+}
+
+//border
+@mixin b($size, $horz: none, $type: solid, $color: black){
+  @if $horz == none {
+    border: #{$size} #{$type} #{$color};
+  } @else {
+    border-#{$horz}: #{$size} #{$type} #{$color};
+  }
+}
+//CSS3
+//border-radius
+@mixin br($radius, $vert: none, $horz: none) {
+  @if $horz == none {
+    border-radius: $radius;
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+  } @else {
+    border-#{$vert}-#{$horz}-radius: $radius;
+    -moz-border-radius-#{$vert}#{$horz}: $radius;
+    -webkit-border-#{$vert}-#{$horz}-radius: $radius;
+  }
+}
+//box-shadow
+@mixin bs($value, $color: black, $x: 0, $y: 0) {
+  box-shadow: $x $y $value $color;
+  -moz-box-shadow: $x $y $value $color;
+}
+
+
+//color
+.color-black{
+  @include c(#000000);
+}
+.color-darkgrey{
+  @include c(#4d4b47);
+}
+.color-grey{
+  @include c(#807e7a);
+}
+.color-lightgrey{
+  @include c(#b3b3b3);
+}
+.color-link{
+  @include c(#004477);
+}
+.color-module, .color-active{
+  @include c(#666666);
+}
+.color-amount{
+  @include c(#cc0000);
+}
+.color-button{
+  @include bc(none, #ffcc33);
+}
+.color-button-active{
+  @include bc(none, #ffac13);
+}
+.color-client-background{
+  @include bc(none, #f4f0ed);
+}
+.color-module-background{
+  @include bc(none, #f5f5f5);
+}
+.color-module-background-active{
+  @include bc(none, #f3f3f3);
+}
+.color-line{
+  @include c(#eeeeee);
+}
+
+//ico
+.ico-none{
+}
+.ico-quan{
+  @include bc('/affixes/images/quan@2x.png', none, no-repeat, 9px, 11px);
+  padding-left: 35px !important;
+  background-size: 20px 20px;
+}
+.ico-mian{
+  @include bc('/affixes/images/mian@2x.png', none, no-repeat, 9px, 11px);
+  padding-left: 35px !important;
+  background-size: 20px 20px;
+}
+.ico-song{
+  @include bc('/affixes/images/song@2x.png', none, no-repeat, 9px, 11px);
+  padding-left: 35px !important;
+  background-size: 20px 20px;
+}
+.ico-zhe{
+  @include bc('/affixes/images/zhe@2x.png', none, no-repeat, 9px, 11px);
+  padding-left: 35px !important;
+  background-size: 20px 20px;
+}
+.ico-jian{
+  @include bc('/affixes/images/jian@2x.png', none, no-repeat);
+  padding-left: 30px !important;
+  background-size: 20px 20px;
+}
+.ico-zhao{
+  @include bc('/affixes/images/zhao@2x.png', none, no-repeat);
+  padding-left: 30px !important;
+  background-size: 20px 20px;
+}
+
+//btn
+.btn{
+  padding: 0px 10px;
+  line-height: 25px;
+  height: 25px;
+}
+
+.btn-inline{
+  display: inline-block;
+  min-width: 24px;
+  min-height: 1px;
+}
+
+.btn-block{
+  display: block;
+  margin: 0;
+  @extend .color-button;
+  @extend .color-black;
+  @extend .text-center;
+  @extend .font-big;
+  font-weight: bolder;
+  padding: 12px 0;
+  height: 18px;
+  line-height: 18px;
+  @include br(3px);
+  margin-top: -10px;
+}
+
+.btn-disable{
+  @include bc(none, #e3e1df);
+  @include b(1px, none, solid, #c7c5c3);
+  @include c(#807e7a);
+  height:  41px;
+  @include br(3px);
+}
+
+.btn-able{
+  @include bc(none, white);
+  @include b(1px, none, solid, #c7c5c3);
+  height:  41px;
+  @include br(3px);
+  @include c(#807e7a);
+}
+
+.btn-active{
+  @extend .color-button-active;
+}
+
+.btn-hover{
+  background-color: #d3cfcd !important;
+}
