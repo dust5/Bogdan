@@ -4,8 +4,20 @@
  * Date: 13-5-20
  * Time: 下午4:58
  */
+
+/*
+ * 浏览器缓存方法
+ */
 ;define(
 function() {
+
+    /*
+     * 存
+     * args = {
+     *  String type,    //保存类型
+     *  JSON data,      //数据
+     * }
+     */
     var setStorage = function (args) {
         if('local' == args.type) {
             for(var i in args.data) {
@@ -18,6 +30,11 @@ function() {
         }
     };
 
+    /*
+     * 取
+     * String key,    //键名
+     * String type,   //保存类型
+     */
     var getStorage = function (key, type) {
         if('local' == type || !type) {
             if(localStorage.getItem(key)) {
@@ -40,19 +57,31 @@ function() {
         }
     };
 
-    var remove = function(key) {
-        localStorage.removeItem(key);
-        sessionStorage.removeItem(key);
+    /*
+     * 清除
+     * String key,    //键名
+     * String type,   //保存类型
+     */
+    var remove = function(key, type) {
+        type = type || 'local';
+        if('local' == type) {
+            localStorage.removeItem(key);
+        }else {
+            sessionStorage.removeItem(key);
+        }
     };
 
+    /*
+     * 页面转向
+     * String link,    //转向地址，可以是路径，也可以是页面代号
+     */
     var relink = function(link) {
-        if(UA) {
-            link += '&client_type=' + ct;
-        }
-
         return window.location = link;
     };
 
+    /*
+     * 页面刷新
+     */
     var refresh = function() {
         return location.reload();
     };

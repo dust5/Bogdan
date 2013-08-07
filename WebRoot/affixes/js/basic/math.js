@@ -4,93 +4,29 @@
  * Date: 13-5-14
  * Time: 下午6:59
  */
+
+/*
+ * 数学方法核心，包括浮点数的运算，数组的排序和一些动画需要的公式
+ */
 ;define([
     'jquery'
 ],
 function($) {
+
     /*
-     p:需要判断的点坐标{x,y}
-     r:范围。对象，由其他函数传入
+     * 对JS浮点数运算进行的优化
+     * Number s,    //需要运算的数字，可以是浮点型，整型，和可转换为数字的字符型
+     * Int dot,     //保留的浮点位数，默认2位
      */
-    var isInside = function(p, r) {
-        if(r.recLT) {
-            if(p.x < r.recLT.x || p.x > r.recRT.x) {
-                return false;
-            }
-            if(p.y < r.recLT.y || p.y > r.recLB.y) {
-                return false;
-            }
-            return true;
+    var parseNum = function(s, dot) {
+        dot = dot || 2;
+        var m = 1;
+        for(var i = 1; i <= dot; i ++) {
+            m *= 10;
         }
-        if(r.o) {
-            if(Math.sqrt(Math.pow(p.x - r.o.x, 2) + Math.pow(p.y - r.o.y, 2)) > r.r) {
-                return false;
-            }
-            return true;
-        }
+        var k = Math.round(parseFloat(s)*m);
+        return k / m;
     };
-
-    /*
-     le:上一个事件
-     ce:当前事件
-     t:捕获当前事件的节点,jQuery对象
-     type:点击区域类型
-     */
-    var isTap = function(le, ce, t, type) {
-        var range = {
-            rectangle : rec,
-            circle : circle
-        };
-        var time = ce.timeStamp - le.timeStamp; //触摸开始和结束之间的时间间隔
-        var sp, ep; //触摸开始点和触摸结束点的坐标
-
-        var top = t.offset().top;
-        var left = t.offset().left;
-
-        function rec(t) {
-            var p = {
-                x : 10,
-                y : 10
-            }; //范围修正值，扩大触摸判定范围
-            var range = {};
-
-            range.recLT = {
-                x : left - p.x,
-                y : top - p.y
-            };
-            range.recLB = {
-                x : left - p.x,
-                y : top + t.height() + p.y
-            };
-            range.recRT = {
-                x : left + t.width() + p.x,
-                y : top - p.y
-            };
-            range.recRB = {
-                x : left + t.width() + p.x,
-                y : top + t.height() + p.y
-            };
-
-            return range;
-        };
-
-        function circle(t) {
-            var p = 20;
-            var range = {};
-            range.o = {
-                x : left + t.width() / 2,
-                y : top + t.height() / 2
-            };
-            range.r = t.width() / 2 + p;
-            return range;
-        };
-
-        if(0 == $('#mask').length && time <= 250 && time >=0 &&
-            isInside({x : le.originalEvent.targetTouches[0].pageX, y : le.originalEvent.targetTouches[0].pageY}, range[type](t)) &&
-            isInside({x : ce.originalEvent.changedTouches[0].pageX, y : ce.originalEvent.changedTouches[0].pageY}, range[type](t))) {
-            t.trigger('tappy');
-        }
-    }
 
     var sort = function(type, arr) {
         var reg = {
@@ -246,9 +182,7 @@ function($) {
     }
 
     return {
-        event : {
-            isTap : isTap
-        },
+        parseNum : parseNum,
         sort : sort
     }
 });

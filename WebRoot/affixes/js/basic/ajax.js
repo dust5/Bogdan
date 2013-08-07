@@ -4,98 +4,31 @@
  * Date: 13-5-13
  * Time: 下午1:51
  */
+
+/*
+ * ajax核心方法，将服务代号映射至对应服务，拼接发送数据并完成ajax请求，实现回调函数。
+ */
 ;define(['jquery'], function($) {
+    /*
+     * 服务映射，
+     * id -> {
+     *  String url,        //服务路径
+     *  String service,    //服务名称
+     *  Array param        //服务接受的参数名称
+     *  [optional] other   //其他自定义的参数
+     * }
+     *
+     */
     var port = {
-        'user/gifts/gift' : {
-            url : '/service',
-            service : 'sysbase_querySysEventGiftDetailInfoById',
-            param : ['giftItemID']
-        },
-        'user/orders/order' : {
-            url : '/service',
-            service : 'css_order_preparePay',
-            param : ['records'],
-            version : '1.1'
-        },
-        'user/orders/pay' : {
-            url : '/service',
-            service : 'pay_confirmPayMobileService',
-            param : ['records'],
-            version : '1.1'
-        },
-        'user/orders/paySuccess' : {
-            url : '/service',
-            service : 'pay_paySuccess',
-            param : ['records'],
-            version : '1.1'
-        },
-        'user/orders/updateOrder' : {
-            url : '/service',
-            service : 'order_new_submit_order',
-            param : ['records'],
-            version : '1.1'
-        },
-        'system/login' : {
-            url : '/login'
-        },
-        'system/register' : {
-            url : '/register'
-        },
-        'system/logout' : {
-            url : '/logout'
-        },
-        'events/event' : {
-            url : '/service',
-            service : 'sysbase_querySysEventItemsDetailById',
-            param : ['eventItemID']
-        },
-        'system/getMsg' : {
-            url : '/service',
-            service : 'user_sendMsgForRegister',
-            param : ['regMobile']
-        },
-        'system/checkMobile' : {
-            url : '/service',
-            service : 'gozap_validateRegMobile',
-            param : ['regMobile']
-        },
-        'system/checkUsername' : {
-            url : '/service',
-            service : 'gozap_validateUserLoginName',
-            param : ['userLoginName']
-        },
-        'event/getVoucher' : {
-            url : '/service',
-            service : 'sysbase_eventItemsChangeGiftService',
-            param : ['gameWay', 'eventItemID']
-        },
-        'shop/preferential' : {
-            url : '/service',
-            service : 'shop_queryPreferentialService',
-            param : ['shopID']
-        },
-        'shop/getTime' : {
-            url : '/service',
-            service : 'shop_new_getAllTimeAndPromotion',
-            param : ['records'],
-            version : '1.1'
-        },
-        'shop/shop' : {
-            url : '/service',
-            service : 'shop_queryShopFood',
-            param : ['shopID']
-        },
-        'shop/getOrder' : {
-            url : '/service',
-            service : 'css_order_bulkOrder',
-            param : ['properties', 'records'],
-            version : '1.1'
-        },
-        'system/security' : {
-            url : '/rsakey'
-        }
     }
 
+    /*
+     * 抓取get请求附带的参数
+     * eg:
+     * bogdan.com/article_11?d=20130807&i=132
+     * ajax.getArgs().d; //d = '20130807'
+     * ajax.getArgs().i  //i = '132'
+     */
     function getArgs(){
         var args = {};
         var match = null;
@@ -107,6 +40,15 @@
         return args;
     }
 
+    /*
+     * 发起ajax请求
+     * args = {
+     *  String id,                //服务代号
+     *  [optional] String type,   //服务类型
+     *  JSON data,                //服务需要的数据
+     *  function suc,             //请求成功时的回调函数
+     * }
+     */
     function request(args) {
         //todo:error handlers
         if(args.id) {

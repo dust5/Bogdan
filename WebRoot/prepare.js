@@ -38,7 +38,10 @@ require.config({
 });
 
 /**
- * namespace
+ * namespace方法
+ * eg：
+ * namespace('Bogdan');
+ * Bogdan.blogname = 'Bogdan';
  */
 var namespace = function() {
         var a = arguments, o = null, i, j, d, rt;
@@ -54,24 +57,14 @@ var namespace = function() {
 }
 
 /**
- * url解析
+ * url映射
  * @type {{parse: Function}}
+ * 使用方法：页面代号->页面路径
+ * eg：将名称为'login'的页面映射到'/system/login.js'
+ *     'login' : 'system/'
  */
 var $url = {
     rewrite : {
-        'gift' : 'pages/user/gifts/',
-        'order' : 'pages/user/orders/',
-        'paySuccess' : 'pages/user/orders/',
-        'information' : 'pages/user/orders/',
-        'preferential' : 'pages/shop/',
-        'shop' : 'pages/shop/',
-        'login' : 'pages/system/',
-        'register' : 'pages/system/',
-        'msgcode' : 'pages/system/',
-        'error' : 'pages/system/',
-        'event' : 'pages/events/',
-        'download' : 'pages/system/',
-        'event_getOK' : 'pages/events/'
     },
 
     prt: window.location,
@@ -91,7 +84,7 @@ var $url = {
                 }
             };
             module.id = path.substring(m + 1, n);
-            module.src = "/affixes/js/" + $url.rewrite[module.id] + module.id + ".js";
+            module.src = "/affixes/js/pages/" + $url.rewrite[module.id] + module.id + ".js";
         }else {
             //连主页时调用
             module.src = "/affixes/js/pages/index.js";
@@ -104,12 +97,11 @@ var $url = {
 var module = $url.parse();
 var func = module.id;
 var src = module.src;
-require([src, 'jquery', '/affixes/js/basic/math.js'], function(func, $, math) {
+require([src], function(func) {
+    /*
+     * 页面预渲染入口
+     * preRender中完成页面载入前的一些判断，如是否登录，是否具有页面许可等，再决定是否调用渲染方法render()
+     */
 
-    if(func.preRender) {
-        func.preRender();
-    }
-
-    //页面渲染入口
-    func.render();
+    func.preRender();
 });
